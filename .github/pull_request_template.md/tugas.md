@@ -1,4 +1,3 @@
-markdown
 ---
 name: Tugas
 about: Pekerjaan yang jelas dan bisa diselesaikan
