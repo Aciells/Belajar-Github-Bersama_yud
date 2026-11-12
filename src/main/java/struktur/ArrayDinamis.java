@@ -66,4 +66,20 @@ public class ArrayDinamis<T> implements StrukturData<T> {
         }
         size = 0;
     }
+
+    public void validateInvariant() {
+        if (size < 0 || size > data.length) {
+            throw new IllegalStateException("size di luar 0..capacity: " + size);
+        }
+        for (int i = 0; i < size; i++) {
+            if (data[i] == null) {
+                throw new IllegalStateException("ada null di indeks " + i);
+            }
+        }
+        for (int i = size; i < data.length; i++) {
+            if (data[i] != null) {
+                throw new IllegalStateException("sel sisa tidak null di indeks " + i);
+            }
+        }
+    }
 }
