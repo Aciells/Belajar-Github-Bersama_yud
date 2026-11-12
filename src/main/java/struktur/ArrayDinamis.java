@@ -51,6 +51,19 @@ public class ArrayDinamis<T> implements StrukturData<T> {
         size--;
         return dihapus;
     }
-    @Override public boolean contains(T item) { throw new UnsupportedOperationException(); }
-    @Override public void clear() { throw new UnsupportedOperationException(); }
+    @Override
+    public boolean contains(T item) {
+        for (int i = 0; i < size; i++) {
+            if (data[i].equals(item)) return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            data[i] = null;
+        }
+        size = 0;
+    }
 }
