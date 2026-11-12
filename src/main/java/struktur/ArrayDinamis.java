@@ -39,7 +39,18 @@ public class ArrayDinamis<T> implements StrukturData<T> {
     }
 
     // sisanya menyusul di langkah berikutnya
-    @Override public T remove(int index) { throw new UnsupportedOperationException(); }
+    @Override
+    @SuppressWarnings("unchecked")
+    public T remove(int index) {
+        if (index < 0 || index >= size) throw new IndexOutOfBoundsException("index " + index);
+        T dihapus = (T) data[index];
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = null;
+        size--;
+        return dihapus;
+    }
     @Override public boolean contains(T item) { throw new UnsupportedOperationException(); }
     @Override public void clear() { throw new UnsupportedOperationException(); }
 }
